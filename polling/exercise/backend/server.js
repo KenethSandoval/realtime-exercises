@@ -19,12 +19,24 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.static("frontend"));
 
-app.get("/poll", function (req, res) {
-  //use getMsgs to get messages to send back
+app.get("/poll", function (_, res) {
+  res.json({
+    msg: getMsgs(),
+  });
 });
 
 app.post("/poll", function (req, res) {
-  //add a new message to the server
+  const { user, text } = req.body;
+
+  msg.push({
+    user,
+    text,
+    time: Date.now(),
+  });
+
+  res.json({
+    status: "ok",
+  });
 });
 
 //start the server
