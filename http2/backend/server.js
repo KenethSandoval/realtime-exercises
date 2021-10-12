@@ -40,7 +40,7 @@ server.on("stream", (stream, headers) => {
   const method = headers[":method"];
 
   // streams open for every request from the browser
-  if (path === "/msg" && method === "GET") {
+  if (path === "/msgs" && method === "GET") {
     // immediately reply with 200 OK and the encoding
     console.log("connected a stream", stream.id);
     stream.respond({

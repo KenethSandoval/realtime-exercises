@@ -35,13 +35,12 @@ async function getNewMsgs() {
   let reader;
   const utf8Decoder = new TextDecoder("utf-8");
   try {
-    const res = await fetch("/msg");
+    const res = await fetch("/msgs");
     reader = res.body.getReader();
   } catch (e) {
     console.log("connection error", e);
   }
-
-  presence.innerText = "connect";
+  presence.innerText = "connected";
 
   let readerResponse;
   let done;
@@ -50,9 +49,10 @@ async function getNewMsgs() {
       readerResponse = await reader.read();
     } catch (e) {
       console.error("reader fail", e);
-      presence.innerText = "disconnect";
+      presence.innerText = "disconnected";
       return;
     }
+
     const chunk = utf8Decoder.decode(readerResponse.value, { stream: true });
     done = readerResponse.done;
 
@@ -62,11 +62,12 @@ async function getNewMsgs() {
         allChat = json.msg;
         render();
       } catch (e) {
-        console.error("parse error", e);
+        console.error("parser error", e);
       }
     }
   } while (!done);
-  presence.innerText = "disconnect";
+
+  presence.innerText = "disconnected";
 }
 
 function render() {
