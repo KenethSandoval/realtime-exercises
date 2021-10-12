@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(express.static("frontend"));
 
 app.get("/poll", function (_, res) {
-  res.json({
+  res.status.json({
     msg: getMsgs(),
   });
 });
