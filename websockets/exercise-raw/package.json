@@ -9,10 +9,17 @@
     "lint": "prettier --write \"**/*.{js,ts,json,md,html,css}\""
   },
   "keywords": [],
+  "type": "module",
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^2.0.13",
     "prettier": "^2.4.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "nanobuffer": "^2.0.0",
+    "serve-handler": "^6.1.3"
   }
 }
