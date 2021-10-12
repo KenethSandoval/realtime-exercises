@@ -1,0 +1,18 @@
+{
+  "name": "exercise-raw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js",
+    "lint": "prettier --write \"**/*.{js,ts,json,md,html,css}\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.13",
+    "prettier": "^2.4.1"
+  }
+}
